@@ -2,49 +2,88 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>T4B.SupportAssistant – Privacy Policy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>T4B.SupportAssistant — Privacy & Security</title>
+  <meta name="description" content="Privacy Policy and Security Practices for the T4B.SupportAssistant Chrome extension." />
+  <meta name="theme-color" content="#0b5cff" />
   <style>
+    :root {
+      --bg: #0b1020; --card: #0f1733; --muted: #8aa0ffcc; --text: #eaf0ff;
+      --accent: #0b5cff; --accent-2: #54d6ff; --ok: #36d399; --warn: #f5a524; --bad: #ef4444;
+      --shadow: 0 10px 30px rgba(11,92,255,0.15), 0 4px 16px rgba(0,0,0,0.3);
+      --radius: 16px; --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    }
     body {
-      font-family: "Segoe UI", Roboto, sans-serif;
-      background: #f8f9fb;
-      color: #222;
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin: 0; font-family: var(--sans); color: var(--text);
+      background: radial-gradient(1200px 600px at 10% -20%, rgba(84,214,255,0.12), transparent 60%),
+                  radial-gradient(1000px 600px at 110% 10%, rgba(11,92,255,0.15), transparent 55%),
+                  linear-gradient(180deg, rgba(11,16,32,0.98), rgba(11,16,32,0.98)), var(--bg);
+      line-height: 1.6;
     }
-    h1 {
-      color: #004aad;
-      border-bottom: 2px solid #004aad;
-      padding-bottom: 6px;
-    }
-    a { color: #004aad; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    footer {
-      margin-top: 30px;
-      font-size: 0.9em;
-      color: #666;
-      text-align: center;
-    }
+    .container { max-width: 1050px; margin: 0 auto; padding: 32px 20px 80px; }
+    .hero { background: linear-gradient(180deg, rgba(11,92,255,0.14), rgba(84,214,255,0.10)), var(--card);
+            border-radius: 24px; padding: 28px; box-shadow: var(--shadow); margin-bottom: 24px; }
+    .badge { display: inline-flex; align-items: center; gap: 8px; font-weight: 600;
+             background: linear-gradient(90deg, rgba(84,214,255,0.16), rgba(11,92,255,0.16));
+             border: 1px solid rgba(84,214,255,0.35); padding: 6px 12px; border-radius: 999px; }
+    h1 { font-size: clamp(28px, 4vw, 42px); margin: 6px 0 10px; }
+    .sub { color: var(--muted); max-width: 64ch; }
+    .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.08); padding: 22px; margin-bottom: 20px; }
+    h2 { font-size: 20px; margin-top: 0; }
+    code.inline { background: rgba(255,255,255,0.06); padding: 2px 6px; border-radius: 6px; font-family: var(--mono); font-size: 0.95em; }
+    ul { padding-left: 18px; }
+    .footer { margin-top: 28px; display: flex; justify-content: space-between; color: var(--muted); font-size: 14px; }
+    .btn-top { position: fixed; right: 20px; bottom: 20px; padding: 10px 12px; border-radius: 12px; border: 1px solid rgba(84,214,255,0.35); background: rgba(11,92,255,0.2); color: #fff; backdrop-filter: blur(6px); cursor: pointer; box-shadow: var(--shadow); }
+    .btn-top:hover { transform: translateY(-1px); }
   </style>
 </head>
 <body>
-  <h1>Privacy Policy</h1>
+  <div class="container">
+    <section class="hero">
+      <span class="badge">No data collection</span>
+      <h1>T4B.SupportAssistant — Privacy &amp; Security</h1>
+      <p class="sub">This Chrome extension operates locally and does not collect, track, or transmit any personal data. All functionality is limited to user-initiated actions within the browser and local system.</p>
+    </section>
 
-  <p><strong>T4B.SupportAssistant</strong> does not collect, store, or transmit any personal information, browsing history, or user activity data.</p>
+    <div class="card">
+      <h2>Overview</h2>
+      <p>The extension does not collect or store any personal information, browsing history, or analytics data. All actions occur within your local environment, with optional communication only to:</p>
+      <ul>
+        <li><code class="inline">http://127.0.0.1/*</code> — local SupportAssistant backend</li>
+        <li><code class="inline">https://tools4brokers.passwork.io/*</code> — secure Passwork integration</li>
+      </ul>
+    </div>
 
-  <p>The extension operates entirely on the user’s local environment and communicates only with:</p>
-  <ul>
-    <li><code>http://127.0.0.1/*</code> — local SupportAssistant backend</li>
-    <li><code>https://tools4brokers.passwork.io/*</code> — secure Passwork integration</li>
-  </ul>
+    <div class="card">
+      <h2>Data Access & Permissions</h2>
+      <ul>
+        <li><code class="inline">storage</code> — local settings storage only</li>
+        <li><code class="inline">tabs</code> / <code class="inline">activeTab</code> — tab control for user-triggered actions</li>
+        <li><code class="inline">scripting</code> — limited to Passwork pages for automation</li>
+        <li><code class="inline">contextMenus</code> — adds contextual actions (e.g., Connect via RDP)</li>
+        <li><code class="inline">alarms</code> — schedules local polling</li>
+        <li><code class="inline">clipboardRead</code> / <code class="inline">clipboardWrite</code> — temporary credential copy-paste</li>
+        <li><code class="inline">host_permissions</code> — restricted to Passwork and localhost</li>
+      </ul>
+    </div>
 
-  <p>All clipboard, task polling, and automation actions are executed locally and initiated by the user. No data is shared with third parties or remote servers.</p>
+    <div class="card">
+      <h2>Security</h2>
+      <ul>
+        <li>No third-party analytics or ads</li>
+        <li>No remote code execution</li>
+        <li>All scripts bundled within the extension</li>
+        <li>Local-only processing and automation</li>
+      </ul>
+    </div>
 
-  <footer>
-    &copy; 2025 Tools for Brokers. All rights reserved.
-  </footer>
+    <div class="footer">
+      <div>© 2025 Tools for Brokers</div>
+      <div>Last updated: 2025‑11‑03</div>
+    </div>
+  </div>
+  <button class="btn-top" onclick="window.scrollTo({top:0, behavior:'smooth'})">↑</button>
 </body>
 </html>
